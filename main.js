@@ -1,25 +1,23 @@
-const User_name = document.getElementById("register_form");
-if(User_name) User_name.addEventListener("submit", User);
+const User_name = document.getElementById("comReg");
+if(User_name) User_name.addEventListener("submit", User_Object);
 
 
 function User_Object(e){
     e.preventDefault();
-    let first_name = document.getElementById("firstname").value;
-    let last_name = document.getElementById("lastname").value;
-    let user_name = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-    let note = ""; //document.getElementById("note").value;
-    const newUser = new User(first_name,last_name,user_name,password,note);
+    let Firstname = ((document.getElementById("first_name")||{}).value)||"";
+    let Lastname = ((document.getElementById("last_name")||{}).value)||"";
+    let Username = ((document.getElementById("user_name")||{}).value)||"";
+    let Password = ((document.getElementById("password")||{}).value)||"";
+    let Note = ((document.getElementById("comp_note")||{}).value)||"";
+    const newUser = new User(Firstname,Lastname,Username,Password,Note);
     console.log(newUser);
-    console.log(`username =${user_name}`)
-    console.log(`note= ${note}`)
 }
 
-function User(first_name="",last_name="",user_name,password,note=""){
-    this.first_name = first_name;  //document.getElementById("firstname").value;
-    this.last_name = last_name; //document.getElementById("lastname").value;
-    this.user_name = user_name; //document.getElementById("username").value;
-    this.password = password; //document.getElementById("password").value;
+function User(first_name,last_name,user_name,password,note){
+    this.first_name = first_name;  
+    this.last_name = last_name; 
+    this.user_name = user_name; 
+    this.password = password; 
     this.note = note;
 }
 
